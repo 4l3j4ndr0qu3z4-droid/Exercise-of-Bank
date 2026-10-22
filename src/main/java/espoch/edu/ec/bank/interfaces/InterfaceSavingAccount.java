@@ -1,12 +1,15 @@
 package espoch.edu.ec.bank.interfaces;
 
+import espoch.edu.ec.bank.objects.SavingAccount;
+
 public interface InterfaceSavingAccount {
 
-    public float deposit(float value);
+    
+    public boolean deposit(float value, SavingAccount savingsAccount);
 
-    public float withdraw(float value);
+    public boolean withdraw(float value, SavingAccount savingsAccount);
 
-    public float monthlyStatement();
+    public boolean monthlyStatement(SavingAccount savingAccount);
 
-    public String display();
+    public String display(SavingAccount savingAccount);
 }

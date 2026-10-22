@@ -1,22 +1,44 @@
 package espoch.edu.ec.bank.implementation;
 
-public class CheckingAccounts extends Accounts {
+import espoch.edu.ec.bank.interfaces.InterfaceCheckingAccount;
+import espoch.edu.ec.bank.objects.CheckingAccount;
+
+public class CheckingAccounts extends Accounts implements InterfaceCheckingAccount {
 
     @Override
-    public float deposit(float value) {
-        return 0.0f;
+    public boolean deposit(float value, CheckingAccount checkingAccount) {
+        boolean res = false;
+        super.deposit(value, checkingAccount);
+        if (checkingAccount.getOverdraft() > 0) {
+            float temp = value - checkingAccount.getOverdraft();
+            checkingAccount.setOverdraft(temp);
+            res = true;
+        }
+        return res;
     }
 
     @Override
-    public float withdraw(float value) {
-        return 0.0f;
+    public boolean withdraw(float value, CheckingAccount checkingAccount) {
+        boolean res = false;
+        if(value > checkingAccount.getBalance()){
+            
+        }
+        else{
+        
+        }
+        return res;
     }
+
     @Override
-    public float monthlyStatement() {
-        return 0.0f;
+    public boolean monthlyStatement(CheckingAccount checkingAccount) {
+        super.monthlyStatement(checkingAccount);
+        return true;
     }
+
+    //a new print method displays the account balance, the 
+    //monthly fee, the number of transactions made (sum of deposits and withdrawals), and the overdraft value
     @Override
-    public String display() {
-        return "";
+    public String display(CheckingAccount checkingAccount) {
+        return ("BALANCE: " + checkingAccount.getBalance() + "MONTLY FEE: " + checkingAccount.getMonthlyFee() + "DEPOSITS: " + checkingAccount.getNumberDeposits() + "REITROS: " + checkingAccount.getWithDrawals() + "OVERDRAFT: " + checkingAccount.getOverdraft());
     }
 }

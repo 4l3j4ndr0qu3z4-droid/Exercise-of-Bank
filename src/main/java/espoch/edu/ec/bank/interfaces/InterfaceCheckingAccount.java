@@ -1,12 +1,14 @@
 package espoch.edu.ec.bank.interfaces;
 
+import espoch.edu.ec.bank.objects.CheckingAccount;
+
 public interface InterfaceCheckingAccount {
 
-    public float deposit(float value);
+    public boolean deposit(float value, CheckingAccount checkingAccount);
 
-    public float withdraw(float value);
+    public boolean withdraw(float value, CheckingAccount checkingAccount);
 
-    public float monthlyStatement();
+    public boolean monthlyStatement(CheckingAccount checkingAccount);
 
-    public String display();
+    public String display(CheckingAccount checkingAccount);
 }
