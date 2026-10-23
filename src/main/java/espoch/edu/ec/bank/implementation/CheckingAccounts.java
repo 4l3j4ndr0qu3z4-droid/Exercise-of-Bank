@@ -10,9 +10,10 @@ public class CheckingAccounts extends Accounts implements InterfaceCheckingAccou
         boolean res = false;
         super.deposit(value, checkingAccount);
         if (checkingAccount.getOverdraft() > 0) {
-            float temp = value - checkingAccount.getOverdraft();
-            float tem = checkingAccount.getBalance()+ temp;
-            checkingAccount.setBalance(tem);
+            //float temp = value - checkingAccount.getOverdraft();
+            //float tem = checkingAccount.getBalance()+ temp;
+            float temp = checkingAccount.getBalance()-checkingAccount.getOverdraft();
+            checkingAccount.setBalance(temp);
             res = true;
         }
         return res;
