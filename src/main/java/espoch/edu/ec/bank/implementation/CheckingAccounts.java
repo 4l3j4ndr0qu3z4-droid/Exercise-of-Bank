@@ -11,7 +11,8 @@ public class CheckingAccounts extends Accounts implements InterfaceCheckingAccou
         super.deposit(value, checkingAccount);
         if (checkingAccount.getOverdraft() > 0) {
             float temp = value - checkingAccount.getOverdraft();
-            checkingAccount.setOverdraft(temp);
+            float tem = checkingAccount.getBalance()+ temp;
+            checkingAccount.setBalance(tem);
             res = true;
         }
         return res;
@@ -21,11 +22,12 @@ public class CheckingAccounts extends Accounts implements InterfaceCheckingAccou
     public boolean withdraw(float value, CheckingAccount checkingAccount) {
         boolean res = false;
         if(value > checkingAccount.getBalance()){
-            
-        }
-        else{
+            float temp = checkingAccount.getBalance()-value;
+            checkingAccount.setOverdraft(temp);
         
         }
+        float tem = checkingAccount.getBalance()- value;
+        checkingAccount.setBalance(tem);
         return res;
     }
 
