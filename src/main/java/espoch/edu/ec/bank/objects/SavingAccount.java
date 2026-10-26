@@ -4,6 +4,12 @@ public class SavingAccount extends Account {
 
     protected boolean activeSavingsAccount;
 
+    public SavingAccount(float balance, float annualInterestRate) {
+        super(balance, annualInterestRate);
+    }
+
+    
+    
     public SavingAccount(boolean activeSavingsAccount, float balance, float annualInterestRate) {
         super(balance, annualInterestRate);
         this.activeSavingsAccount = activeSavingsAccount;

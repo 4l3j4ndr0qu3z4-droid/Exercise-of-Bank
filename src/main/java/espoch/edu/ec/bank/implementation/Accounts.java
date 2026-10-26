@@ -7,6 +7,8 @@ public class Accounts {
     public boolean deposit(float value, Account account) {
         float auxiliarDeposit = account.getBalance() + value;
         account.setBalance(auxiliarDeposit);
+        int a = account.getNumberDeposits()+1;
+        account.setNumberDeposits(a);
         return true;
 
     }
@@ -16,6 +18,8 @@ public class Accounts {
         if (value <= account.getBalance()) {
             float auxiliarDeposit = account.getBalance() - value;
             account.setBalance(auxiliarDeposit);
+            int a = account.getWithDrawals()+1;
+            account.setWithDrawals(a);
             res = true;
         }
 

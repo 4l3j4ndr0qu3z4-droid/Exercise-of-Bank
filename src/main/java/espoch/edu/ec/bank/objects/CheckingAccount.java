@@ -4,6 +4,9 @@ public class CheckingAccount extends Account {
 
     protected float overdraft = 0.0f;
 
+    
+    
+    
     public CheckingAccount(float balance, float annualInterestRate) {
         super(balance, annualInterestRate);
     }
